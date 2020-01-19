@@ -16,7 +16,20 @@ def main():
 
 @app.route('/from/<direction>')
 def direction(direction):
-    return render_template('direction.html')
+    tours_from = {}
+    pricelist = []
+    duration_list = []
+    for tour_id, tour in tours.items():
+        if tour['departure'] == direction:
+            tours_from[tour_id] = tour
+            pricelist += [tour['price']]
+            duration_list += [tour['nights']]
+    max_price, min_price = max(pricelist), min(pricelist)
+    max_nights, min_nights = max(duration_list), min(duration_list)
+
+    return render_template('direction.html', title=title, departures=departures, direction=direction,
+                           max_price=max_price, min_price=min_price, max_nights=max_nights, min_nights=min_nights,
+                           tours_from=tours_from)
 
 @app.route('/tours/<id>/')
 def tour(id):
