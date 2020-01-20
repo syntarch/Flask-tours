@@ -3,6 +3,8 @@ from flask import render_template
 from Project21.tours_data import *
 import random
 
+departures = {"msk":"Из Москвы","spb":"Из Петербурга","nsk":"Из Новосибирска","ekb":"Из Екатеринбурга","kazan":"Из Казани"}
+
 
 app = Flask(__name__)
 @app.route('/')
@@ -26,13 +28,19 @@ def direction(direction):
             duration_list += [tour['nights']]
     max_price, min_price = max(pricelist), min(pricelist)
     max_nights, min_nights = max(duration_list), min(duration_list)
+    from_city = departures[direction]
 
-    return render_template('direction.html', title=title, departures=departures, direction=direction,
-                           max_price=max_price, min_price=min_price, max_nights=max_nights, min_nights=min_nights,
-                           tours_from=tours_from)
+    return render_template('direction.html',
+                           title=title, max_price=max_price, min_price=min_price, max_nights=max_nights, departures=departures,
+                           min_nights=min_nights, tours_from=tours_from, from_city=from_city)
 
-@app.route('/tours/<id>/')
+@app.route('/tours/<int:id>/')
 def tour(id):
-    return render_template('tour.html', title=title, departures=departures)
+    hotel = tours[id]
+    direction = hotel['departure']
+    from_city = departures[direction]
+    return render_template('tour.html', title=title, departures=departures, hotel=hotel, from_city=from_city)
 
-app.run()
+
+app.run(debug=True)
+

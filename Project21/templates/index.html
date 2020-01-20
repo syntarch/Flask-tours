@@ -39,7 +39,7 @@
         {% for tour_id, tour in tours.items() %}
         <div class="col-4" data-test="card">
             <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
+            <img src={{ tour.picture }} class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
               <h5 class="card-title">{{ tour.title }}</h5>
              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -26,7 +26,7 @@
     </nav>
 
 
-    <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departures.direction }}</span></h1>
+    <h1 class="display-5 mt-4">Летим <span data-test="from">{{ from_city }}</span></h1>
     <p class="mb-4" >Найдено <span data-test="tourcount"> туров </span>от <span data-test="pricemin">{{ min_price }}</span> до <span data-test="pricemax">{{ max_price }}</span> Р‚ и от <span data-test="nightsmax">{{ min_nights }}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span> ночей</p>
     <!-- HERO -->
 
@@ -38,11 +38,11 @@
           {% for tour_id, tour in tours_from.items() %}
         <div class="col-4" data-test="card">
             <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
+            <img src={{ tour.picture }} class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
-              <h5 class="card-title">{{ tour_title }}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="" class="btn btn-sm btn-primary" data-test="tourlink">{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price }} Р       {{ tour.stars }}*</a>
+              <h5 class="card-title">{{ tour.country }}: {{ tour.title }} {{ tour.stars }}*</h5>
+              <p class="card-text">{{ tour.description }}</p>
+              <a href="/tours/{{ tour_id }}" class="btn btn-sm btn-primary" data-test="tourlink">{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price }} Р       {{ tour.stars }}*</a>
             </div>
         </div>
         </div>
