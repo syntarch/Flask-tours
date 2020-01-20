@@ -36,8 +36,8 @@
             <div class="card mb-3" >
             <img src={{ tour.picture }} class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
-              <h5 class="card-title">{{ tour.title }}</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">{{ tour.country }}:  {{ tour.title }} {{ tour.stars }}*</h5>
+             <p class="card-text">{{ tour.description }}</p>
                 <a href="/tours/{{ tour_id }}" class="btn btn-sm btn-primary" data-test="tourlink">{{ tour.date }}, {{ tour.nights }} ночей, {{ tour.price }} Р       {{ tour.stars }}*</a>
             </div>
         </div>
