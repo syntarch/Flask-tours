@@ -40,5 +40,6 @@ def tour(id):
     return render_template('tour.html', title=title, departures=departures, hotel=hotel, from_city=from_city)
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
 
