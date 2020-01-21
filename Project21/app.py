@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from Project21.tours_data import *
+from .tours_data import *
 import random
 
 departures = {"msk":"Из Москвы","spb":"Из Петербурга","nsk":"Из Новосибирска","ekb":"Из Екатеринбурга","kazan":"Из Казани"}
