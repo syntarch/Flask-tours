@@ -3,7 +3,7 @@
 {% block container %}
 
     <h1 class="display-5 mt-4">Летим <span data-test="from">{{ from_city }}</span></h1>
-    <p class="mb-4" >Найдено <span data-test="tourcount">{{ tours_from|length }} туров </span>от <span data-test="pricemin">{{ min_price }}</span> до <span data-test="pricemax">{{ max_price }}</span> Р‚ и от <span data-test="nightsmax">{{ min_nights }}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span> ночей</p>
+    <p class="mb-4" >Найдено <span data-test="tourcount">{{ tours_from|length }} тура </span>от <span data-test="pricemin">{{ pricelist|min }}</span> до <span data-test="pricemax">{{ pricelist|max }}</span> Р‚ и от <span data-test="nightsmax">{{ duration_list|min }}</span> ночей до <span data-test="nightsmax">{{ duration_list|max }}</span> ночей</p>
     <!-- HERO -->
 
 
